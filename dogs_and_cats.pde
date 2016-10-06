@@ -46,7 +46,12 @@ void add3(){
 }
 
 void walls(){
-  //if(Dboy==X && Dante==Y);
-  //float mx= constrain(mouseX, 1000, 1000);
-//rect(mx, 1000, 1000, 1000);
+if(Dante<0){
+  Dante=0;}
+if(Dante>1000){
+  Dante=1000;}
+if(Dboy>1000){
+  Dboy=1000;}
+if(Dboy<0){
+  Dboy=0;}
 }
