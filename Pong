@@ -1,0 +1,57 @@
+float ballX = 300;
+float ballY = 100;
+float dirX = 5;
+float dirY = 4;
+boolean gameover = false;
+int highScore;
+int score;
+int points=0;
+
+void setup(){
+ size(600, 400);
+ highScore = 0;
+}
+void draw(){
+  
+ background(255, 255, 0);
+ ellipse(ballX, ballY, 20, 20);
+ fill(0, 0, 0);
+ rect(mouseX, 380, 80, 20); 
+ textSize (27);
+ text("points =" + points  ,10 , 30);
+ if (ballY >= 400){
+fill (0);
+textSize(30);
+textAlign(CENTER);
+text("GAME OVER.", width/2, height/2);
+exit();
+
+} 
+ {if (ballY <= 0)
+ { 
+ dirY = 4;
+ ballY += dirY;
+ 
+ } else if (ballY >= 380 && ballX >= mouseX && ballX <= mouseX+80)
+ {
+ dirY = -4;
+ ballY += dirY;
+  points = points + 1;
+ } else
+ {
+ ballY += dirY;
+ } 
+ if (ballX <= 0)
+ {
+ dirX = 4; 
+ ballX += dirX;
+ } else if (ballX >= 600)
+ {
+ dirX = -4;
+ ballX += dirX;
+ } else
+ {
+ ballX += dirX;
+ }
+}
+}
